@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Mouse Clicks</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.17/paper-full.js"
+        integrity="sha512-z1Ws0aVF+gkSR/9Wo1d82UX7tOb80rPIa55NOTpptJr+EbyhfszWvw5nKMPn0il7T2AsNPgNjlvadGAgL/HOrA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .body {
+            width: 640px;
+            margin: 0 auto;
+        }
+
+        canvas[resize] {
+            width: 100%;
+            height: 100%;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script type="text/javascript" src="mouse.js"></script>
+    <canvas id="myCanvas" resize></canvas>
+    <h1>Mouse Clicks example</h1>
+    <a href="#" onclick="tool1.activate();">Maximum Radius</a>
+    <a href="#" onclick="tool2.activate();">Minimum Radius</a>
+
+
+
+</body>
+
+
+</html>
