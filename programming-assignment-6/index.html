@@ -18,10 +18,10 @@
         const socket = new WebSocket('ws://localhost:3005');
         const messagesContainer = document.getElementById('messages');
 
-        socket.onmessage = function (event) {
+        socket.onmessage = async function (event) {
             const messageElement = document.createElement('p');
             console.log(event);
-            messageElement.innerText = event.data;
+            messageElement.innerText = await event.data.text();
             messagesContainer.appendChild(messageElement);
         };
 
