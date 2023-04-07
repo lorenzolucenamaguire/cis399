@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Example</title>
+</head>
+
+<body>
+
+    <label>Send message to server</label>
+    <input type="text" id="message-input" />
+    <button id="send-button">Send</button>
+    <h2> Incoming messages will be displayed below.</h2>
+    <div id="messages"></div>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:3005');
+        const messagesContainer = document.getElementById('messages');
+
+        socket.onmessage = function (event) {
+            const messageElement = document.createElement('p');
+            console.log(event);
+            messageElement.innerText = event.data;
+            messagesContainer.appendChild(messageElement);
+        };
+
+        socket.onopen = function (event) {
+            console.log('WebSocket connection established.');
+        };
+
+        socket.onclose = function (event) {
+            console.log('WebSocket connection closed.');
+        };
+
+        socket.onerror = function (error) {
+            console.error('WebSocket error:', error);
+        };
+
+        const inputField = document.querySelector('#message-input');
+        const sendButton = document.querySelector('#send-button');
+
+        sendButton.addEventListener('click', () => {
+            const message = inputField.value;
+            socket.send(message);
+        });
+    </script>
+</body>
+
+</html>
